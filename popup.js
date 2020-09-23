@@ -1,10 +1,4 @@
-let changeColor = document.getElementById('changeColor');
-
-  chrome.storage.sync.get('color', function(data) {
-    changeColor.style.backgroundColor = data.color;
-    changeColor.setAttribute('value', data.color);
-  });
-  
+//Runs when popup is first opened, sets title to current URL. (Not important at all, used only for testing, will likely be removed)
 document.addEventListener("DOMContentLoaded", function(){
 	chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
 		//executes the script (Main brain of onClick) 
@@ -29,6 +23,9 @@ changeColor.onclick = function(element) {
 	});
 };
 
+//Will be used to find chronological spot of current episode and redirect to next episode
 function findNextEpisode(){
+	
+	//return full code segment to redirect to new page (Will be altered to be next in chronological order)
 	return "window.location.href = 'https://www.google.com'";
 }
