@@ -14,7 +14,7 @@ changeColor.onclick = function(element) {
 		//executes the script (Main brain of onClick) 
 		chrome.tabs.executeScript(
 			tabs[0].id,
-			{code: 'document.title = "test";'}
+			{code: 'document.title = "' + tabs[0].url + '";'}
 		);
 	});
 };
