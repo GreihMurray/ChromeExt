@@ -5,11 +5,16 @@ let changeColor = document.getElementById('changeColor');
     changeColor.setAttribute('value', data.color);
   });
   
-  changeColor.onclick = function(element) {
-    let color = element.target.value;
-    chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
-      chrome.tabs.executeScript(
-          tabs[0].id,
-          {code: 'document.body.style.backgroundColor = "' + color + '";'});
-    });
-  };
+//Declares onclick function for change color button
+changeColor.onclick = function(element) {
+	//gets set color
+	let color = element.target.value;
+	//queries all chrome tabs and gets active tab
+	chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+		//executes the script (Main brain of onClick) 
+		chrome.tabs.executeScript(
+			tabs[0].id,
+			{code: 'document.title = "test";'}
+		);
+	});
+};
