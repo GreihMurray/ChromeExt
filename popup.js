@@ -5,6 +5,16 @@ let changeColor = document.getElementById('changeColor');
     changeColor.setAttribute('value', data.color);
   });
   
+document.addEventListener("DOMContentLoaded", function(){
+	chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+		//executes the script (Main brain of onClick) 
+		chrome.tabs.executeScript(
+			tabs[0].id,
+			{code: 'document.title = "' + tabs[0].url + '";'}
+		);
+	});
+})  
+
 //Declares onclick function for change color button
 changeColor.onclick = function(element) {
 	//gets set color
@@ -14,7 +24,11 @@ changeColor.onclick = function(element) {
 		//executes the script (Main brain of onClick) 
 		chrome.tabs.executeScript(
 			tabs[0].id,
-			{code: 'document.title = "' + tabs[0].url + '";'}
+			{code: findNextEpisode()}
 		);
 	});
 };
+
+function findNextEpisode(){
+	return "window.location.href = 'https://www.google.com'";
+}
