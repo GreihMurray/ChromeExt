@@ -1,7 +1,7 @@
 {
-	"name": "First Tests",
-	"version": "1.0",
-	"description": "Tests",
+	"name": "Order 65",
+	"version": "1.2",
+	"description": "Allows for easier chronological playing of Star Wars the Clone Wars via Disney+",
 	"permissions": ["activeTab", "declarativeContent", "storage", "tabs"],
 	"content_scripts": [
 		{
