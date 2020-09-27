@@ -1,5 +1,5 @@
 //Runs when popup is first opened, sets title to current URL. (Not important at all, used only for testing, will likely be removed)
-document.addEventListener("DOMContentLoaded", function(){
+window.addEventListener("DOMContentLoaded", function(){
 	chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
 		//executes the script (Main brain of onClick) 
 		chrome.tabs.executeScript(
@@ -8,8 +8,6 @@ document.addEventListener("DOMContentLoaded", function(){
 		);
 	});
 })  
-
-
 
 //Declares onclick function for change color button
 buttonBoy.onclick = function(element) {

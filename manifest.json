@@ -3,6 +3,13 @@
 	"version": "1.0",
 	"description": "Tests",
 	"permissions": ["activeTab", "declarativeContent", "storage", "tabs"],
+	"content_scripts": [
+		{
+			"matches": ["https://www.disneyplus.com/*"],
+			"js": ["addListen.js"],
+			"run_at": "document_end"
+		}
+	],
 	"background": {
 		"scripts": ["background.js"],
 		"persistent": false
